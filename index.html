@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Expense Splitter</title>
+    <link rel="stylesheet" href="Splitwise.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Expense Splitter</h1>
+    </header>
+    <main class="container">
+        <section id="left-panel" class="card">
+            <div id="groups-section">
+                <h2>Groups</h2>
+                <ul id="groups-list"></ul>
+                <form id="add-group-form" class="inline-form">
+                    <input type="text" id="group-name" placeholder="New Group Name" required />
+                    <button type="submit">+</button>
+                </form>
+            </div>
+            <div id="members-section">
+                <h2>Members of <span id="current-group-name">...</span></h2>
+                <ul id="members-list"></ul>
+                <form id="add-member-form" class="inline-form">
+                    <input type="text" id="member-name" placeholder="New Member Name" required />
+                    <button type="submit">+</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Rename Modal -->
+        <div id="rename-modal" class="modal">
+            <div class="modal-content">
+                <h3 id="rename-modal-title">Rename</h3>
+                <input type="text" id="rename-input" placeholder="Enter new name" />
+                <div class="modal-actions">
+                    <button id="rename-cancel">Cancel</button>
+                    <button id="rename-confirm">Save</button>
+                </div>
+            </div>
+        </div>
+
+        <section id="center-panel" class="card">
+            <h2>Add New Expense</h2>
+            <form id="add-expense-form">
+                <div class="form-control">
+                    <label for="expense-description">Description</label>
+                    <input type="text" id="expense-description" required />
+                </div>
+                <div class="form-control">
+                    <label for="expense-amount">Amount ($)</label>
+                    <input type="number" id="expense-amount" min="0.01" step="0.01" required />
+                </div>
+                <div class="form-control">
+                    <label for="expense-payer">Paid by</label>
+                    <select id="expense-payer" required></select>
+                </div>
+                <div class="form-control">
+                    <fieldset>
+                        <legend>Split amongst</legend>
+                        <div id="expense-participants"></div>
+                    </fieldset>
+                </div>
+                <div class="form-control">
+                    <fieldset>
+                        <legend>Split Type</legend>
+                        <div class="radio-group">
+                            <label><input type="radio" name="split-type" value="equal" checked> Equal</label>
+                            <label><input type="radio" name="split-type" value="exact"> Exact</label>
+                            <label><input type="radio" name="split-type" value="percent"> Percent</label>
+                        </div>
+                    </fieldset>
+                </div>
+                <div id="dynamic-split-inputs" class="form-control"></div>
+                <button type="submit">Add Expense</button>
+            </form>
+        </section>
+
+        <section id="right-panel">
+            <div class="card">
+                <h2>Expenses</h2>
+                <ul id="expenses-list"></ul>
+            </div>
+            <div class="card">
+                <h2>Balances</h2>
+                <div id="balances-list"></div>
+            </div>
+            <div class="card">
+                <h2>Settlements</h2>
+                <div id="settlements-list"></div>
+            </div>
+        </section>
+    </main>
+    <script src="Splitwise.js"></script>
+</body>
+
+</html>
