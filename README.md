@@ -1,4 +1,4 @@
-# Expense Splitter
+# Expense Splitter [https://expense-splitter-website-nine.vercel.app/]
 
 ## Overview
 Expense Splitter is a web application that allows users to manage expenses among groups of people. Users can create groups, add members, and track expenses, ensuring that everyone pays their fair share.
